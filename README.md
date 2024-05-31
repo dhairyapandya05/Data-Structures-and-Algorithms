@@ -1,8 +1,8 @@
 # Data Structures and Algorithm 🌟
 
-Welcome to the **Data Structures and Algorithm** repository! This repository contains solutions to various problems related to data structures and algorithms. The aim is to implement, understand, and improve my skills in solving problems related to computer science fundamentals.
+Welcome to the **Data Structures and Algorithm** repository! This repository encapsulates a myriad of solutions to problems centered around data structures and algorithms, aiming to enhance problem-solving skills and deepen understanding of core computer science principles.
 
-![Repo Status](https://img.shields.io/badge/status-active-brightgreen) ![License](https://img.shields.io/badge/license-MIT-blue)
+![DSA Illustration](https://your-image-url.com/illustration.png)
 
 ---
 
@@ -11,7 +11,7 @@ Welcome to the **Data Structures and Algorithm** repository! This repository con
 - [Introduction](#introduction)
 - [Features](#features)
 - [Directory Structure](#directory-structure)
-- [How to Use](#how-to-use)
+- [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
@@ -20,19 +20,43 @@ Welcome to the **Data Structures and Algorithm** repository! This repository con
 
 ## Introduction 📝
 
-In this repository, you will find my solutions to a variety of problems focused on data structures and algorithms. This includes both common and advanced topics, implemented in different programming languages.
+This repository is a curated collection of solutions to various data structure and algorithm problems, both fundamental and advanced. It serves as a resource for learning, reference, and improvement of coding proficiency in these critical areas.
 
 ---
 
 ## Features ✨
 
-- 📚 Comprehensive solutions to DSA problems
-- 💡 Well-documented code with explanations
-- 🌐 Solutions in multiple programming languages
-- 🔄 Regular updates with new problems and solutions
-- 🛠️ Test cases and performance analysis
+- 📚 Extensive solutions to DSA problems
+- 💡 Detailed code documentation with insightful explanations
+- 🌐 Implementation in multiple programming languages
+- 🔄 Regular updates with new problems and refined solutions
+- 🛠️ Comprehensive test cases and performance benchmarking
 
 ---
 
 ## Directory Structure 📂
 
+```plaintext
+data-structures-and-algorithm/
+│
+├── arrays/
+│   ├── problem1.md
+│   ├── problem2.md
+│   └── ...
+│
+├── linked-lists/
+│   ├── problem1.md
+│   ├── problem2.md
+│   └── ...
+│
+├── trees/
+│   ├── problem1.md
+│   ├── problem2.md
+│   └── ...
+│
+├── graphs/
+│   ├── problem1.md
+│   ├── problem2.md
+│   └── ...
+│
+└── README.md
