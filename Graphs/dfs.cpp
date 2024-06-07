@@ -6,33 +6,27 @@ using namespace std;
 class Solution {
   public:
     // Function to return a list containing the DFS traversal of the graph.
-    
-    void solve(unordered_map<int,vector<int>>& adj,int u,vector<int>& result,vector<bool>& visited){
+    void solve(unordered_map<int,vector<int>>& adj,int u,vector<bool>& visited,vector<int>& result){
         if(visited[u]==true){
             return;
         }
         visited[u]=true;
         result.push_back(u);
-        for (int v : adj[u]){
+        for(auto v: adj[u]){
             if(visited[v]==false){
-                solve(adj,v,result,visited);
+                solve(adj,v,visited,result);
             }
         }
     }
     vector<int> dfsOfGraph(int V, vector<int> mp[]) {
         // Code here
-        // make adjacency list
         unordered_map<int,vector<int>> adj;
-        for(int i=0;i<V;i++){
-            for(auto j=mp[i].begin();j!=mp[i].end();j++){
-                adj[i].push_back(*j);
-            }
-            
+        for(int u=0;u<V;u++){
+            adj.insert({u,mp[u]});
         }
-        
         vector<int> result;
         vector<bool> visited(V,false);
-        solve(adj,0,result,visited);
+        solve(adj,0,visited,result);
         return result;
     }
 };
