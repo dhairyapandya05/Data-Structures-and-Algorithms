@@ -3,47 +3,56 @@
 using namespace std;
 
 // } Driver Code Ends
-class Solution {
-  public:
+class Solution
+{
+public:
     // Function to return Breadth First Traversal of given graph.
-    void solve(int u,vector<bool>& visited,vector<int>& result,unordered_map<int,vector<int>>& adj){
+    void solve(int u, vector<bool> &visited, vector<int> &result, unordered_map<int, vector<int>> &adj)
+    {
         queue<int> q;
         q.push(u);
-        visited[u]=true;
-        while(!q.empty()){
-            int n=q.size();
-            while(n--){
-                int temp=q.front();
+        visited[u] = true;
+        while (!q.empty())
+        {
+            int n = q.size();
+            while (n--)
+            {
+                int temp = q.front();
                 q.pop();
                 result.push_back(temp);
-                for(auto v=adj[temp].begin();v!=adj[temp].end();v++){
-                    if(visited[*v]==false){
-                    q.push(*v);
-                    visited[*v]=true;  
+                for (auto v = adj[temp].begin(); v != adj[temp].end(); v++)
+                {
+                    if (visited[*v] == false)
+                    {
+                        q.push(*v);
+                        visited[*v] = true;
                     }
-
                 }
             }
         }
     }
-    vector<int> bfsOfGraph(int V, vector<int> mp[]) {
+    vector<int> bfsOfGraph(int V, vector<int> mp[])
+    {
         // Code here
-        unordered_map<int,vector<int>> adj;
-        for(int u=0;u<V;u++){
-            adj[u]=mp[u];
+        unordered_map<int, vector<int>> adj;
+        for (int u = 0; u < V; u++)
+        {
+            adj[u] = mp[u];
         }
         vector<int> result;
-        vector<bool> visited(V,false);
-        solve(0,visited,result,adj);
+        vector<bool> visited(V, false);
+        solve(0, visited, result, adj);
         return result;
     }
 };
 
 //{ Driver Code Starts.
-int main() {
+int main()
+{
     int tc;
     cin >> tc;
-    while (tc--) {
+    while (tc--)
+    {
         int V, E;
         cin >> V >>
 
@@ -51,7 +60,8 @@ int main() {
 
         vector<int> adj[V];
 
-        for (int i = 0; i < E; i++) {
+        for (int i = 0; i < E; i++)
+        {
             int u, v;
             cin >> u >> v;
             adj[u].push_back(v);
@@ -61,7 +71,8 @@ int main() {
         // cin>>s1;
         Solution obj;
         vector<int> ans = obj.bfsOfGraph(V, adj);
-        for (int i = 0; i < ans.size(); i++) {
+        for (int i = 0; i < ans.size(); i++)
+        {
             cout << ans[i] << " ";
         }
         cout << endl;
