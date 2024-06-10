@@ -27,7 +27,8 @@ public:
         unordered_map<int, vector<int>> adj;
         int N = graph.size();
         for (int u = 0; u < N; u++) {
-            for (auto& v : graph[u]) {
+            for (auto& v : graph[u]) 
+            {
                 adj[u].push_back(v);
                 adj[v].push_back(u);
             }
