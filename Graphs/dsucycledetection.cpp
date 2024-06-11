@@ -41,7 +41,6 @@ class Solution
 	    rank.resize(V,0);
 	    for(int i = 0; i<V; i++){
 	        parent[i] = i;
-	        rank[i]=1;
 	    }
 	        
 	    for(int u=0;u<V;u++){
