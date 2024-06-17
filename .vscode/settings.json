@@ -3,5 +3,6 @@
     "files.associations": {
         "new": "cpp",
         "iostream": "cpp"
-    }
+    },
+    "CodeGPT.apiKey": "CodeGPT Plus Beta"
 }
