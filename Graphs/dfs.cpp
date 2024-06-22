@@ -18,6 +18,9 @@ class Solution {
             }
         }
     }
+    // You are given a connected undirected graph. Perform a Depth First Traversal of the graph.
+// Note: Use the recursive approach to find the DFS traversal of the graph starting from the 0th vertex from left to right according to the graph.
+// V = 5 , adj = [[2,3,1] , [0], [0,4], [0], [2]]
     vector<int> dfsOfGraph(int V, vector<int> mp[]) {
         // Code here
         unordered_map<int,vector<int>> adj;

@@ -5,7 +5,7 @@ using namespace std;
 // } Driver Code Ends
 class Solution
 {
-    typedef pair<int,int> pp;
+    typedef pair<int,int> pp;// weight node
 	public:
 	//Function to find sum of weights of edges of the Minimum Spanning Tree.
     int spanningTree(int V, vector<vector<int>> adj[])
