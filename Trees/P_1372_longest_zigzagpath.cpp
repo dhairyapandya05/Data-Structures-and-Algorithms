@@ -21,11 +21,11 @@ public:
         }
         maxpath = max(maxpath, steps);
         if (goleft == true) {
-            solve(root->left, false, ++steps);
-            solve(root->right, true, 1);
+            solve(root->left, false, ++steps);// false iss liyae ki next time tujae right mae jaana hai...
+            solve(root->right, true, 1);// false iss liyae ki next time tujae left mae jaana hai...
         } else {
-            solve(root->left, false, 1);
-            solve(root->right, true, ++steps);
+            solve(root->left, false, 1);// false iss liyae ki next time tujae right mae jaana hai...
+            solve(root->right, true, ++steps);// false iss liyae ki next time tujae left mae jaana hai...
         }
     }
     int longestZigZag(TreeNode* root) {

@@ -1,7 +1,6 @@
 class Solution {
 public:
-    bool validateBinaryTreeNodes(int n, vector<int>& leftChild,
-                                 vector<int>& rightChild) {
+    bool validateBinaryTreeNodes(int n, vector<int>& leftChild,vector<int>& rightChild) {
         map<int, int> childtoparent;
         map<int, vector<int>> adjacencylist;
         for (int i = 0; i < n; i++) {

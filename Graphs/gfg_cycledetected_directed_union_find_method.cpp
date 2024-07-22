@@ -43,14 +43,23 @@ class Solution
 	        parent[i] = i;
 	        rank[i]=1;
 	    }
-	        
+// Understanding the if (u < v) Condition:
+// In an undirected graph, an edge between two vertices u and v appears in both adjacency lists: adj[u] and adj[v]. For example, if there is an edge between vertex 0 and vertex 1, then:
+
+// Vertex 0's adjacency list will contain vertex 1 (adj[0] will have 1).
+// Vertex 1's adjacency list will contain vertex 0 (adj[1] will have 0).
+// Why Use if (u < v)?
+// Avoid Redundant Processing:
+
+// Without the condition if (u < v), the algorithm would process each edge twice: once as (u, v) and once as (v, u).
+By checking if (u < v), we ensure that each edge is processed only once. This is because for any edge (u, v), either u < v or u > v, and we choose to process it only in the case where u < v.   
 	    for(int u=0;u<V;u++){
 	        for(auto& v: adj[u]){
 	            if(u<v){
 	                int u_parent=find(u);
 	                int v_parent=find(v);
 	                if(u_parent==v_parent){
-	                    return true;
+	                    return true;// cycle is present
 	                }
 	                else{
 	                    unionSets(u_parent,v_parent);

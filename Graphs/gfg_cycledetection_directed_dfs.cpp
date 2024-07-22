@@ -4,16 +4,6 @@ class Solution {
     bool isCycledfs(int u,vector<int> adj[],vector<bool>& visited,vector<bool>& inRecurstionStack){
         visited[u]=true;
         inRecurstionStack[u]=true;
-        // for(auto v:adj[u]){
-        //     if(visited[v] and isCycledfs(v,adj,visited,inRecurstionStack)){
-        //         return true;
-        //     }
-            
-        //     else if (inRecurstionStack[v]){
-        //         return true;
-        //     }
-        // }
-        // list<int>::iterator i;
         for (auto i:adj[u] ){
             if (!visited[i]){
                 bool ans=isCycledfs(i,adj ,visited, inRecurstionStack);
@@ -33,7 +23,7 @@ class Solution {
     }
     bool isCyclic(int V, vector<int> adj[]) {
         // code here
-        vector<bool> visited(V,false);
+        vector<bool> visited(V,false);// ek time aagar is vector mae update ho gaya to ho gaya
         vector<bool> inRecurstionStack(V,false);
         for(int i=0;i<V;i++){
             if(visited[i]==false and isCycledfs(i,adj,visited,inRecurstionStack)){

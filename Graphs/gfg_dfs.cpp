@@ -8,9 +8,6 @@ class Solution {
   public:
     // Function to return a list containing the DFS traversal of the graph.
     void solve(unordered_map<int,vector<int>>& adj,int u,vector<bool>& visited,vector<int>& result){
-        if(visited[u]==true){
-            return;
-        }
         visited[u]=true;
         result.push_back(u);
         for(auto v: adj[u]){

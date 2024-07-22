@@ -10,6 +10,8 @@
  * right(right) {}
  * };
  */
+
+// aagar us node mae 1 nahi hai to us node ko prune kar do simple
 class Solution {
 public:
     bool isOnepresent(TreeNode* root) {

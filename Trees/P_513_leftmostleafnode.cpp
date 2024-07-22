@@ -10,7 +10,7 @@ public:
             q.pop();
 
             leftmost_value = node->val;
-
+//pahalae right phir left kyoki last tak leftmost _value ki value preserve rahaegi
             if (node->right) {
                 q.push(node->right);
             }

@@ -19,7 +19,7 @@ public:
         if (result.size() < level) {
             result.push_back(root->val);
         }
-        solve(level + 1, result, root->right);
+        solve(level + 1, result, root->right);// here order is important we are talking right first and then  left
         solve(level + 1, result, root->left);
     }
     vector<int> rightSideView(TreeNode* root) {

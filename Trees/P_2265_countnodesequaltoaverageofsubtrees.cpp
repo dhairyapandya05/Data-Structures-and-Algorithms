@@ -18,7 +18,7 @@ public:
         if (root == NULL) {
             return {0, 0};
         }
-        pair<int, int> ans; // sum numberofnodes
+        pair<int, int> ans; // pair<sum ,numberofnodes>
         pair<int, int> ansl;
         pair<int, int> ansr;
         if (root->left != NULL) {

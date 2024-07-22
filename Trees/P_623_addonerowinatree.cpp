@@ -86,7 +86,7 @@ public:
                     newleft->left = templeft;
                     newright->right = tempright;
                     // break;
-                    continue;
+                    continue; // ho salkta hai queue mae aur bhi elements ho jisko hamae process karna padae aur unkae aaandar new nodes lagani padae
                 }
                 q.pop();
 

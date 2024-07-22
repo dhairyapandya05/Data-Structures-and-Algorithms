@@ -13,7 +13,7 @@ class Solution
     {
         // Code here
         vector<int> result (V,INT_MAX);;
-        priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> q;
+        priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> q;// minheap
         // dist,node
         q.push({0,S});
         result[S]=0;

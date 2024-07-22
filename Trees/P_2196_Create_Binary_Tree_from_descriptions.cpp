@@ -14,7 +14,7 @@ class Solution {
 public:
     TreeNode* createBinaryTree(vector<vector<int>>& descriptions) {
         int n = descriptions.size();
-        unordered_map<int, TreeNode*> map;
+        unordered_map<int, TreeNode*> map; // it is a map od int and address (int stores the value of the node and address stores the address odthe tree node)
         set<int> childNodes;
         for (int i = 0; i < n; i++) {
             int parent = descriptions[i][0];
@@ -24,6 +24,7 @@ public:
                 map[parent] = new TreeNode(parent);
             if (map.find(child) == map.end())
                 map[child] = new TreeNode(child);
+
             if (isLeft)
                 map[parent]->left = map[child];
             else
