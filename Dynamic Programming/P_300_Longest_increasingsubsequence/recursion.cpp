@@ -1,21 +1,18 @@
 class Solution {
 public:
-    // int ans = INT_MIN;
-    int solve(int prev, int i, vector<int>& nums) {
-        if (i >= nums.size()) {
+    int solve(int prev, int curr, vector<int>& nums) {
+        if (curr >= nums.size()) {
             return 0;
         }
-        int take = INT_MIN;
-        int skip = solve(prev, i + 1, nums);
-        if (prev < nums[i]) {
-            prev=nums[i];
-            take = solve(prev, i + 1, nums) + 1;
+        int take = 0, skip;
+        if (prev == -1 or nums[prev] < nums[curr]) {
+            take = 1 + solve(curr, curr + 1, nums);
         }
-        return max(skip, take);
+        skip = solve(prev, curr + 1, nums);
+        return max(take, skip);
     }
     int lengthOfLIS(vector<int>& nums) {
-        int prev = INT_MIN;
-        int i = 0;
-        return solve(prev, i, nums);
+        int ans = solve(-1, 0, nums);
+        return ans;
     }
 };
