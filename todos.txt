@@ -1,0 +1,17 @@
+Leetcode:
+442:Find Duplicates
+2402:Meeting Rooms III
+164 Max Gap Max Distane interviewbit link: https://www.interviewbit.com/problems/max-distance/
+Stock span III
+Hotel Booking Possible: https://www.interviewbit.com/problems/hotel-bookings-possible/
+Flips: https://www.interviewbit.com/problems/flip/, https://leetcode.com/problems/minimum-number-of-k-consecutive-bit-flips/description/
+Maximum unsorted array: https://www.interviewbit.com/problems/maximum-unsorted-subarray/
+remove duplicates from sorted arrayI and II both
+Maximum rectangle in binary matrix
+maximum product subarray
+21. Merge Two Sorted Lists
+86. Partition List
+147: Insertion Sort (https://youtu.be/gwW8U4exaYs?si=zgHrm-ndhHvemFnT)
+160. Intersection of Two Linked Lists(https://leetcode.com/problems/intersection-of-two-linked-lists/description/)
+92. Reverse Linked List II(https://leetcode.com/problems/reverse-linked-list-ii/description/)
+DP AND Back tracking

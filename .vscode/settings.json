@@ -14,7 +14,10 @@
         "initializer_list": "cpp",
         "regex": "cpp",
         "valarray": "cpp",
-        "functional": "cpp"
+        "functional": "cpp",
+        "chrono": "cpp",
+        "random": "cpp",
+        "limits": "cpp"
     },
     "CodeGPT.apiKey": "CodeGPT Plus Beta"
 }

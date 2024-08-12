@@ -30,7 +30,7 @@ public:
                     if (isSafe(_x + x, _y + y, n) and
                         grid[_x + x][_y + y] == 0) {
                         q.push({_x + x, _y + y});
-                        grid[_x + x][_y + y] = 1;
+                        grid[_x + x][_y + y] = 1;// marking the co ordinates as visited
                     }
                 }
             }

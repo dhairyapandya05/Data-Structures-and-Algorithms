@@ -31,7 +31,7 @@ public:
         
         // Check if all non-zero degree vertices are visited
         for(int i = 0; i<V; i++) {
-            if(visited[i] == false && adj[i].size() > 0)
+            if(visited[i] == false && adj[i].size() > 0)//vvv imp condition ho sakta hai vo node single node ho aur vo connected na ho .....
                 return false;
         }
         return true;

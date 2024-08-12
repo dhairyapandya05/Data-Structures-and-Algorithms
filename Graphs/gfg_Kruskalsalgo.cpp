@@ -27,15 +27,15 @@ class Solution
         else{
             if(rank[u_parent]>rank[v_parent]){
                 parent[v_parent]=u_parent;
-                rank[v_parent]++;
+                // rank[v_parent]++;
             }
             else if(rank[v_parent]>rank[u_parent]){
                 parent[u_parent]=v_parent;
-                rank[u_parent]++;
+                // rank[u_parent]++;
             }
             else{
                 parent[u_parent]=v_parent;
-                rank[u_parent]++;
+                rank[v_parent]++;
             }
         }
     }

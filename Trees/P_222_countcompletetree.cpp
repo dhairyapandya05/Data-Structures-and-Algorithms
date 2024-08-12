@@ -10,6 +10,7 @@
  * right(right) {}
  * };
  */
+// The tree is a complete binary tree
 class Solution {
 public:
     int leftHeight(TreeNode* root, int& lh) {

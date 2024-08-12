@@ -13,7 +13,6 @@ class Solution {
     *   V: number of vertices
     */
     vector<int> bellman_ford(int V, vector<vector<int>>& edges, int S) {
-        // Code here
         vector<int> result(V,1e8);
         result[S]=0;
         for(int count=1;count<=V-1;count++){
