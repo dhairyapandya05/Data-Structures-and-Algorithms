@@ -5,7 +5,7 @@ public:
         if (curr >= nums.size()) {
             return 0;
         }
-        string key = to_string(prev) + to_string(curr);
+        string key = to_string(prev) +"_"+ to_string(curr);
         if (mp.find(key) != mp.end()) {
             return mp[key];
         }

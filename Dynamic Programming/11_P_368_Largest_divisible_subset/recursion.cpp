@@ -17,6 +17,7 @@ public:
     }
     vector<int> largestDivisibleSubset(vector<int>& nums) {
         // recursion
+        sort(nums.begin(),nums.end());
         vector<int> result;
         vector<int> temp;
         solve(0, -1, result, temp, nums);
