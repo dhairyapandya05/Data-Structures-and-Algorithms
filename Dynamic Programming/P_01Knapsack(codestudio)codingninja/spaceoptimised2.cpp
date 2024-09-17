@@ -1,6 +1,5 @@
 int maxProfit(vector<int> &values, vector<int> &weights, int n, int capacity)
 {
-	// vector<vector<int>>dp(n,vector<int>(capacity+1,0));
   vector<int> curr(capacity+1,0);
     for (int weight = weights[0]; weight <= capacity; weight++) {
       curr[weight]=values[0];
