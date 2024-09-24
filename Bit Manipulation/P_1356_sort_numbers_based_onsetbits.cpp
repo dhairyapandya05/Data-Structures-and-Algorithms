@@ -27,6 +27,7 @@ public:
         }
         return cnt;
     }
+    // Method 3
     vector<int> sortByBits(vector<int>& arr) {
         auto lamda=[&](int& a,int& b){
             int setbitA=bitcnt(a);
@@ -38,5 +39,12 @@ public:
         };
         sort(arr.begin(),arr.end(),lamda);
         return arr;
+    }
+};
+// Method 4
+class Solution {
+public:
+    int hammingWeight(int n) {
+        return __builtin_popcount(n);// its complexity is O(number of bits)
     }
 };
