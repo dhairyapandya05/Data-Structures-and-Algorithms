@@ -1,9 +1,7 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-int maximumScore(vector<int> &nums, int k)
-{
-    int n = nums.size();
+class Solution {
+public:
+    int maximumScore(vector<int>& nums, int k) {
+            int n = nums.size();
     int l = k;
     int r = k;
     int ans = nums[k];
@@ -26,12 +24,5 @@ int maximumScore(vector<int> &nums, int k)
         }
     }
     return ans;
-}
-int main()
-{
-    vector<int> nums={5,5,4,5,4,1,1,1};
-    int k = 0;
-    int ans=maximumScore(nums,k);
-    cout<<endl<<"Answer: "<<ans;
-    return 0;
-}
+    }
+};
