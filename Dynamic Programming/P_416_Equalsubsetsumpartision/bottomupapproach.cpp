@@ -1,3 +1,36 @@
+
+// its corrrect answer is 
+class Solution {
+public:
+    bool canPartition(vector<int>& nums) {
+        int sum = accumulate(nums.begin(), nums.end(), 0);
+        if (sum % 2 == 1) {
+            return false;
+        }
+        int target = sum / 2;
+        int n = nums.size();
+        vector<vector<bool>> dp(n, vector<bool>(target + 1, false));
+        for (int i = 0; i < n; i++) {
+            dp[i][0] = true; // base cases are handled properly
+        }
+        if(target>=nums[0])
+        dp[0][nums[0]] = true; // base case are handled
+        // return solve(n-1,arr,sum,dp);
+        for (int idx = 1; idx < n; idx++) {
+            for (int tempsum = 0; tempsum <= target; tempsum++) {
+                bool skip = false;
+                bool take = false;
+                skip = dp[idx - 1][tempsum];
+                if (tempsum - nums[idx] >= 0) {
+                    take = dp[idx - 1][tempsum - nums[idx]];
+                }
+                dp[idx][tempsum] = skip or take;
+            }
+        }
+        return dp[n - 1][target];
+    }
+};
+
 class Solution {
 public:
     bool canPartition(vector<int>& nums) {

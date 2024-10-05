@@ -10,7 +10,7 @@ public:
         }
         else{
             ans=max(solve(i+1,j,txt1,txt2),solve(i,j+1,txt1,txt2));
-        }
+        } 
         return ans;
     }
     int longestCommonSubsequence(string text1, string text2) {

@@ -1,3 +1,37 @@
+//its correct output is as follows
+class Solution {
+public:
+    bool solve(int idx, vector<int>& arr, int sum,vector<vector<int>>& dp) {
+        if (sum == 0) {
+            return true;
+        }
+        if (idx == 0) {
+            return arr[idx] == sum;
+        }
+        if(dp[idx][sum]!=-1){
+            return dp[idx][sum];
+        }
+        bool skip = false;
+        bool take = false;
+        skip = solve(idx - 1, arr, sum,dp);
+        if (sum - arr[idx] >= 0) {
+            take = solve(idx - 1, arr, sum - arr[idx],dp);
+        }
+        return dp[idx][sum]=skip or take;
+    }
+    bool canPartition(vector<int>& nums) {
+        int sum = accumulate(nums.begin(), nums.end(), 0);
+        if (sum % 2 == 1) {
+            return false;
+        }
+        int target = sum / 2;
+        int n = nums.size();
+        vector<vector<int>>dp(n,vector<int>(target+1,-1));
+        return solve(n - 1, nums, target,dp);
+    }
+}; 
+
+
 class Solution {
 public:
     bool solveRecursionmemo(vector<int>& nums,int index,int target,vector<vector<int>>&dp){

@@ -1,3 +1,33 @@
+// its correct way of minding is as follows strivers method
+class Solution {
+public:
+    bool solve(int idx, vector<int>& arr, int sum) {
+        if (sum == 0) {
+            return true;
+        }
+        if (idx == 0) {
+            return arr[idx] == sum;
+        }
+        bool skip = false;
+        bool take = false;
+        skip = solve(idx - 1, arr, sum);
+        if (sum - arr[idx] >= 0) {
+            take = solve(idx - 1, arr, sum - arr[idx]);
+        }
+        return skip or take;
+    }
+    bool canPartition(vector<int>& nums) {
+        int sum = accumulate(nums.begin(), nums.end(), 0);
+        if (sum % 2 == 1) {
+            return false;
+        }
+        int target = sum / 2;
+        int n = nums.size();
+        return solve(n - 1, nums, target);
+    }
+};
+
+// Dhairya method
 class Solution {
 public:
 
