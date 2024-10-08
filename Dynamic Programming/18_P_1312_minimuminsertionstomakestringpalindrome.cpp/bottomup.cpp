@@ -19,3 +19,6 @@ public:
         return dp[0][n - 1];
     }
 };
+// Method 2 most important
+
+// minimum number of insertions is n-longest palindromic subsequence

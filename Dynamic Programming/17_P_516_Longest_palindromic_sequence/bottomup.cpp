@@ -27,3 +27,4 @@ public:
         return dp[0][n-1];
     }
 };
+// other method of solving this question is by passing string s and string reverse of s in lcs function

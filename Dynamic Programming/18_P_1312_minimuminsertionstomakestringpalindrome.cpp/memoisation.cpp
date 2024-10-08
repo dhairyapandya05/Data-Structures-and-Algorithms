@@ -21,3 +21,6 @@ public:
         return ans;
     }
 };
+// Method 2 most important
+
+// minimum number of insertions is n-longest palindromic subsequence

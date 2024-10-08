@@ -25,3 +25,5 @@ public:
         return ans;
     }
 };
+
+// other method of solving this question is by passing string s and string reverse of s in lcs function

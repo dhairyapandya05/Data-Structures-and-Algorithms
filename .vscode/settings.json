@@ -17,7 +17,8 @@
         "functional": "cpp",
         "chrono": "cpp",
         "random": "cpp",
-        "limits": "cpp"
+        "limits": "cpp",
+        "iosfwd": "cpp"
     },
     "CodeGPT.apiKey": "CodeGPT Plus Beta"
 }
