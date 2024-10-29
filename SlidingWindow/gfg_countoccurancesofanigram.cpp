@@ -22,7 +22,7 @@ public:
             int idx = txt[j] - 'a';
             count[idx]--;
 
-            if (j - i + 1 == k)
+            if (j - i + 1 == k)// fixed sized window check
             {
                 if (allZero(count))
                 {
