@@ -1,36 +1,31 @@
-vector <int> preorder(Node* root)
-{
-  // Your code here
-    Node* curr =root;
+vector<int> preorder(Node *root) {
+    // Your code here
+    Node *curr = root;
     vector<int> preorder;
-    if(root==NULL){
+    if (root == NULL) {
         return preorder;
     }
-    while(curr!=NULL){
-        if(curr->left==NULL){
+    while (curr != NULL) {
+        if (curr->left == NULL) {
             preorder.push_back(curr->data);
-            curr=curr->right;
-        }
-        else{
-            Node* prev=curr->left;
-            while(prev->right!=NULL and prev->right!=curr){
-                prev=prev->right;
+            curr = curr->right;
+        } else {
+            Node *prev = curr->left;
+            while (prev->right != NULL and prev->right != curr) {
+                prev = prev->right;
             }
-            if(prev->right==NULL){
-                prev->right=curr;
+            if (prev->right == NULL) { // make a link to the curr node
+                prev->right = curr;
                 preorder.push_back(curr->data);
-                curr=curr->left;
-            }
-            else{
-                prev->right=NULL;
-                curr=curr->right;
+                curr = curr->left;
+            } else {
+                prev->right = NULL;
+                curr = curr->right;
             }
         }
-          
     }
     return preorder;
 }
-
 
 // Morris inorder traversal;
 /**
@@ -47,8 +42,8 @@ vector <int> preorder(Node* root)
  */
 class Solution {
 public:
-    vector<int> inorderTraversal(TreeNode* root) {
-        TreeNode* curr = root;
+    vector<int> inorderTraversal(TreeNode *root) {
+        TreeNode *curr = root;
         vector<int> inorder;
         if (root == NULL) {
             return inorder;
@@ -58,7 +53,7 @@ public:
                 inorder.push_back(curr->val);
                 curr = curr->right;
             } else {
-                TreeNode* prev = curr->left;
+                TreeNode *prev = curr->left;
                 while (prev->right != NULL and prev->right != curr) {
                     prev = prev->right;
                 }
@@ -75,3 +70,7 @@ public:
         return inorder;
     }
 };
+
+// Speciality of Morris traversal it doesnot include any special space
+// TC:O(N)
+// SC:O(1)

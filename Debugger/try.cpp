@@ -1,48 +1,29 @@
-#include <bits/stdc++.h>
-using namespace std;
+class CartProvider with ChangeNotifier {
+    // Other existing code...
 
-int longestSquareStreak(vector<int> &nums)
-{
-    set<int> st(nums.begin(), nums.end());
-    unordered_map<int, int> mp;
-    int maxans = 0;
-    int n = nums.size();
-    vector<int> visited(n, 0); // unvisited
-    int i = 0;
-    for (auto it : st)
-    {
-        if (visited[i] == 1)
-        {
-            continue;
-        }
-        cout << "Value of i: " << i << endl;
-        visited[i] = 1; // marking it as visited
-        int curr = it;
-        int cnt = 1;
-        curr *= it;
-        while (st.count(curr) != 0)
-        {
-            cout << "Value of changed curr: " << curr << endl;
-            cnt++;
-            auto it = st.find(curr);
-            int dist = distance(st.begin(), it);
-            visited[dist] = 1;
-            curr *= curr;
-        }
-        mp[it] = cnt;
-        cout << "it: " << it << " and " << "cnt: " << cnt << endl;
-        maxans = max(maxans, cnt);
-        i++;
+    // Method to increment quantity
+    Future<void> incrementQuantity(int id, Cart cartItem) async {
+        cartItem.quantity++;
+        cartItem.productPrice = cartItem.initialPrice * cartItem.quantity;
+
+        await db.updateQuantity(cartItem);
+        addTotalPrice(cartItem.initialPrice.toDouble()); // Update total price
+        await getData();                                 // Refresh cart data
+        notifyListeners();                               // Notify listeners to update UI
     }
-    return maxans;
-}
 
-int main()
-{
-    vector<int> nums = {2, 4};
-    int ans = longestSquareStreak(nums);
-    cout << endl
-         << "Final Answer: " << ans << endl;
+    // Method to decrement quantity
+    Future<void> decrementQuantity(int id, Cart cartItem) async {
+        if (cartItem.quantity > 1) {
+            cartItem.quantity--;
+            cartItem.productPrice = cartItem.initialPrice * cartItem.quantity;
 
-    return 0;
+            await db.updateQuantity(cartItem);
+            removeTotalPrice(cartItem.initialPrice.toDouble()); // Update total price
+            await getData();                                    // Refresh cart data
+            notifyListeners();                                  // Notify listeners to update UI
+        } else {
+            await removeFromCart(id, cartItem.productPrice.toDouble()); // Remove from cart if quantity is 0
+        }
+    }
 }
