@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool increasingTriplet(vector<int>& nums) {
+    bool increasingTriplet(vector<int> &nums) {
         int n = nums.size();
         vector<int> dp(n, 1);
         vector<int> lis;
@@ -13,7 +13,7 @@ public:
             }
             dp[i] = lis.size();
         }
-        for (auto& it : dp) {
+        for (auto &it : dp) {
             if (it >= 3) {
                 return true;
             }
@@ -21,3 +21,7 @@ public:
         return false;
     }
 };
+
+// It can also be solved by O(n^3) bruteforce
+
+// or by O(n) in the arrays section check it

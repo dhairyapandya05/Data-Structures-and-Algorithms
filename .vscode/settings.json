@@ -19,7 +19,8 @@
         "random": "cpp",
         "limits": "cpp",
         "iosfwd": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "*.tcc": "cpp"
     },
     "CodeGPT.apiKey": "CodeGPT Plus Beta"
 }
