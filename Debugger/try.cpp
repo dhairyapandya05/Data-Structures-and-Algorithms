@@ -1,29 +1,43 @@
-class CartProvider with ChangeNotifier {
-    // Other existing code...
+// Date Created :
+// Date Completed :
 
-    // Method to increment quantity
-    Future<void> incrementQuantity(int id, Cart cartItem) async {
-        cartItem.quantity++;
-        cartItem.productPrice = cartItem.initialPrice * cartItem.quantity;
-
-        await db.updateQuantity(cartItem);
-        addTotalPrice(cartItem.initialPrice.toDouble()); // Update total price
-        await getData();                                 // Refresh cart data
-        notifyListeners();                               // Notify listeners to update UI
+#include <algorithm>
+#include <cmath>
+#include <iomanip>
+#include <iostream>
+#include <limits>
+#include <vector>
+using namespace std;
+bool isPossible(string &s, string &t) {
+    // code here
+    int i = 0, j = 0;
+    int n = s.length();
+    int m = t.length();
+    int ch = s[0];
+    while (i < n and s[i] == ch) {
+        i++;
     }
 
-    // Method to decrement quantity
-    Future<void> decrementQuantity(int id, Cart cartItem) async {
-        if (cartItem.quantity > 1) {
-            cartItem.quantity--;
-            cartItem.productPrice = cartItem.initialPrice * cartItem.quantity;
+    while (j < m and t[j] == ch) {
+        j++;
+    }
 
-            await db.updateQuantity(cartItem);
-            removeTotalPrice(cartItem.initialPrice.toDouble()); // Update total price
-            await getData();                                    // Refresh cart data
-            notifyListeners();                                  // Notify listeners to update UI
-        } else {
-            await removeFromCart(id, cartItem.productPrice.toDouble()); // Remove from cart if quantity is 0
+    cout << i << " " << j;
+    if (i != j)
+        return false;
+    while (i < n and j < m) {
+        if (s[i] == t[j]) {
+            i++;
         }
+        j++;
     }
+    if (i >= n)
+        return true;
+    return false;
+}
+int main() {
+    string s = "abc";
+    string t = "aabbcc";
+    cout << isPossible(s, t);
+    return 0;
 }
