@@ -1,56 +1,44 @@
 #include <bits/stdc++.h>
-struct Node
-{
+struct Node {
     Node *links[26];
-    Node()
-    {
-        for (int i = 0; i < 26; i++)
-        {
+    Node() {
+        for (int i = 0; i < 26; i++) {
             links[i] = NULL;
         }
     }
 
-    bool containsKey(char ch)
-    {
+    bool containsKey(char ch) {
         return links[ch - 'a'] != NULL;
     }
 
-    Node *get(char ch)
-    {
+    Node *get(char ch) {
         return links[ch - 'a'];
     }
 
-    void put(char ch, Node *node)
-    {
+    void put(char ch, Node *node) {
         links[ch - 'a'] = node;
     }
 };
 
-class Trie
-{
+class Trie {
 private:
     Node *root;
 
 public:
-    Trie()
-    {
+    Trie() {
         root = new Node();
     }
 };
 
-int countDistinctSubstrings(string &s)
-{
+int countDistinctSubstrings(string &s) {
     //    Write your code here.
     Node *root = new Node();
     int n = s.length();
     int cnt = 0;
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         Node *temp = root;
-        for (int j = i; j < n; j++)
-        {
-            if (!temp->containsKey(s[j]))
-            {
+        for (int j = i; j < n; j++) {
+            if (!temp->containsKey(s[j])) {
                 temp->put(s[j], new Node());
                 cnt++;
             }
@@ -59,3 +47,5 @@ int countDistinctSubstrings(string &s)
     }
     return cnt + 1; // 1 for including the empty sub
 }
+
+// Link: https://www.naukri.com/code360/problems/count-distinct-substrings_985292
