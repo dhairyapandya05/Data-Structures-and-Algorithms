@@ -73,16 +73,32 @@ public:
 };
 
 int main() {
-    Trie trie;
-    vector<string> wordscheck = {"amit", "doremon"};
-    int n = dictionary.size();
-    for (int i = 0; i < n; i++) {
-        trie.insert(dictionary[i]);
-        cout << dictionary[i] << " inserted successfully." << endl;
+    // Trie trie;
+    // vector<string> wordscheck = {"amit", "doremon"};
+    // int n = dictionary.size();
+    // for (int i = 0; i < n; i++) {
+    //     trie.insert(dictionary[i]);
+    //     cout << dictionary[i] << " inserted successfully." << endl;
+    // }
+    // trie.WordsStartingWith("dh");
+    // for (auto &word : filteredWords) {
+    //     cout << word << endl;
+    // }
+
+    vector<int> arr = {5, 2, 1, 3, 4};
+    int n = arr.size();
+    int j = n - 1;
+    for (; j >= 1; j--) {
+        if (arr[j] < arr[j - 1])
+            break;
     }
-    trie.WordsStartingWith("dh");
-    for (auto &word : filteredWords) {
-        cout << word << endl;
-    }
+
+    cout << "J: " << arr[j];
+    int k = n - 1;
+    while (k > 0 && arr[k] >= arr[k - 1])
+        k--;
+
+    cout << "k: " << arr[k];
+
     return 0;
 }
