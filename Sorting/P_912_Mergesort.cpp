@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void merge(vector<int>& array, int low, int mid, int high) {
+    void merge(vector<int> &array, int low, int mid, int high) {
         int n1 = mid - low + 1;
         int n2 = high - mid;
         vector<int> left_part(n1), right_part(n2);
@@ -27,7 +27,7 @@ public:
             array[write_ind++] = right_part[p2++];
     }
 
-    void merge_sort(vector<int>& array, int low, int high) {
+    void merge_sort(vector<int> &array, int low, int high) {
         if (low >= high)
             return;
 
@@ -36,7 +36,7 @@ public:
         merge_sort(array, mid + 1, high);
         merge(array, low, mid, high);
     }
-    vector<int> sortArray(vector<int>& nums) {
+    vector<int> sortArray(vector<int> &nums) {
         merge_sort(nums, 0, nums.size() - 1);
         return nums;
     }
