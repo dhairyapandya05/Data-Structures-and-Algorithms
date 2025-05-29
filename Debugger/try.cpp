@@ -1,51 +1,56 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
+
 using namespace std;
-vector<vector<int>> dir = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
-
-bool isSafe(int x, int y, int n, int m, vector<vector<int>> &area) {
-    return x >= 0 && y >= 0 && x < n && y < m && area[x][y] != 0 && area[x][y] != -1;
+bool checkValidity(unordered_map<char,pair<int,int>>& mp , char ch,int& k){
+    return min(mp[ch].first,mp[ch].second)>0;
 }
-int minimumDistance(vector<vector<int>> area) {
-    int n = area.size();    // number of rows
-    int m = area[0].size(); // number of columns
-    int steps = 0;
 
-    queue<pair<int, int>> q;
-    q.push({0, 0});
-    if (area[0][0] == 0)
-        return -1; // cannot start from a blocked cell
-    area[0][0] = -1;
-
-    while (!q.empty()) {
-        int size = q.size();
-        while (size--) {
-            auto temp = q.front();
-            int x = temp.first;
-            int y = temp.second;
-            if (area[x][y] == 9)
-                return steps;
-            area[x][y] = -1;
-            q.pop();
-
-            for (auto it : dir) {
-                int newX = x + it[0];
-                int newY = y + it[1];
-                if (isSafe(newX, newY, n, m, area)) {
-                    q.push({newX, newY});
-                }
-            }
-        }
-        steps++;
+void printmp(unordered_map<char,pair<int,int>>& mp){
+    for(auto it:mp){
+        cout<<"Character: "<<it.first<<" "<<it.second.first<<" "<<it.second.second<<endl; 
     }
-
-    return -1;
 }
+
+int solve(string s,int k) {
+    unordered_map<char,pair<int,int>> mp;
+    for(auto it:s){
+        mp[it].first++;
+    }
+    int n=s.length();
+    int count=0;
+    set<char>st;
+    for(int i=0;i<n-1;i++){
+        mp[s[i]].first--;
+        mp[s[i]].second++;
+        bool valid=checkValidity(mp,s[i],k);
+        // cout<<"valid:" <<valid;
+        auto it=st.find(s[i]);
+        if(valid and it==st.end()){
+            st.insert(s[i]);
+        }
+        else if(!valid and it!=st.end()){
+            st.erase(it);
+        }
+        if(st.size()>k){
+            count++;
+        }
+        printmp(mp);
+        
+        for(auto it:st){
+            cout<<it;
+        }
+        cout<<endl;
+        cout<<"Count: "<<count<<endl;
+        cout<<endl;
+        
+    }
+    return count;
+}
+
+// Example usage
 int main() {
-    vector<vector<int>> grid = {
-        {1, 0, 0},
-        {1, 0, 0},
-        {1, 9, 1}};
-    int ans = minimumDistance(grid);
-    cout << "Answer is: " << ans;
+    
+int ans=solve("wxyzzyxw",1);
+cout<<"Answer: "<<ans;
     return 0;
 }
