@@ -1,0 +1,36 @@
+Current: AACCGGTT
+Trying mutation: AACCGGTT
+Trying mutation: CACCGGTT
+Trying mutation: GACCGGTT
+Trying mutation: TACCGGTT
+Trying mutation: AACCGGTT
+Trying mutation: ACCCGGTT
+Trying mutation: AGCCGGTT
+Trying mutation: ATCCGGTT
+Trying mutation: AAACGGTT
+Trying mutation: AACCGGTT
+Trying mutation: AAGCGGTT
+Trying mutation: AATCGGTT
+Trying mutation: AACAGGTT
+Trying mutation: AACCGGTT
+Trying mutation: AACGGGTT
+Trying mutation: AACTGGTT
+Trying mutation: AACCAGTT
+Trying mutation: AACCCGTT
+Trying mutation: AACCGGTT
+Trying mutation: AACCTGTT
+Trying mutation: AACCGATT
+Trying mutation: AACCGCTT
+Trying mutation: AACCGGTT
+Trying mutation: AACCGTTT
+Trying mutation: AACCGGAT
+Trying mutation: AACCGGCT
+Trying mutation: AACCGGGT
+Trying mutation: AACCGGTT
+Trying mutation: AACCGGTA
+Mutated: AACCGGTA
+Trying mutation: AACCGGTC
+Trying mutation: AACCGGTG
+Trying mutation: AACCGGTT
+Current: AACCGGTA
+Answer: 1

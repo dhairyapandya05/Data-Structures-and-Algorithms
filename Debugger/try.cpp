@@ -1,56 +1,50 @@
-#include<bits/stdc++.h>
-
+#include <bits/stdc++.h>
 using namespace std;
-bool checkValidity(unordered_map<char,pair<int,int>>& mp , char ch,int& k){
-    return min(mp[ch].first,mp[ch].second)>0;
-}
 
-void printmp(unordered_map<char,pair<int,int>>& mp){
-    for(auto it:mp){
-        cout<<"Character: "<<it.first<<" "<<it.second.first<<" "<<it.second.second<<endl; 
-    }
-}
-
-int solve(string s,int k) {
-    unordered_map<char,pair<int,int>> mp;
-    for(auto it:s){
-        mp[it].first++;
-    }
-    int n=s.length();
-    int count=0;
-    set<char>st;
-    for(int i=0;i<n-1;i++){
-        mp[s[i]].first--;
-        mp[s[i]].second++;
-        bool valid=checkValidity(mp,s[i],k);
-        // cout<<"valid:" <<valid;
-        auto it=st.find(s[i]);
-        if(valid and it==st.end()){
-            st.insert(s[i]);
-        }
-        else if(!valid and it!=st.end()){
-            st.erase(it);
-        }
-        if(st.size()>k){
+int check(vector<int> nums, int evenflag) {
+    int count = 0;
+    for (auto it : nums) {
+        if ((evenflag == 1 and it % 2 == 1)) {
+            count++;
+        } else if (evenflag == 0 and it % 2 == 0) {
             count++;
         }
-        printmp(mp);
-        
-        for(auto it:st){
-            cout<<it;
-        }
-        cout<<endl;
-        cout<<"Count: "<<count<<endl;
-        cout<<endl;
-        
+        evenflag = 1 - evenflag;
     }
     return count;
 }
+int minSwaps(vector<int> &nums) {
+    int n = nums.size();
+    int even = 0;
+    int odd = 0;
+    for (auto it : nums) {
+        if (it % 2 == 0)
+            even++;
+        else
+            odd++;
+    }
+    if (!(abs(even - odd) <= 1))
+        return -1;
+    int ans = -1;
+    cout << "We are here: " << endl
+         << "Odd: " << odd << endl
+         << "Even: " << even << endl;
+    if (even > odd) {
+        ans = check(nums, 1);
+    } else if (even < odd) {
+        ans = check(nums, 0);
+    } else {
+        int temp = check(nums, 1);
+        ans = min(temp, n - temp);
+    }
 
-// Example usage
+    return ans;
+}
+
 int main() {
-    
-int ans=solve("wxyzzyxw",1);
-cout<<"Answer: "<<ans;
+    vector<int> temp = {2, 4, 6, 5, 7};
+    int ans = minSwaps(temp);
+
+    cout << "Answer: " << ans << endl;
     return 0;
 }
